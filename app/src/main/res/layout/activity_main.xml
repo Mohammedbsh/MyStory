@@ -19,12 +19,24 @@
             android:layout_height="?attr/actionBarSize"
             android:background="#2196F3"/>
 
+
+
+
     </LinearLayout>
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/navView"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        app:menu="@menu/menu_drwer"
+        app:headerLayout="@layout/nav_header"
+        android:layout_gravity="start"/>
+
+
     <TextView
         android:id="@+id/Email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"

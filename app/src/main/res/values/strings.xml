@@ -4,4 +4,9 @@
     <string name="Password">Password</string>
     <string name="Login">Login</string>
     <string name="i_accept">i_accept</string>
+    <string name="home">home</string>
+    <string name="logout">logout</string>
+    <string name="open">open</string>
+    <string name="close">close</string>
+
 </resources>

@@ -36,18 +36,14 @@ class LoginActivtiy : AppCompatActivity() {
     }
 
     private fun login() {
-
         val arr: ArrayList<User> = ArrayList()
-
         arr.add(User("ahmd@test.com", "333"))
         arr.add(User("t@test.com", "12345"))
         arr.add(User("test@test.com", "12345"))
-
         login?.setOnClickListener {
             val username = username?.text.toString()
             val password = password?.text.toString()
             val user = User(username, password)   // opject
-
             for (userArray in arr) {
                 if (userArray.email == user.email
                     && userArray.password == user.password

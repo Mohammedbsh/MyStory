@@ -8,42 +8,41 @@ import android.widget.CheckBox
 import android.widget.EditText
 import android.widget.Toast
 
-class LoginActivtiy : AppCompatActivity() {
+class LoginActivity : AppCompatActivity() {
 
 
-    private var username: EditText? = null
-    private var password: EditText? = null
+    private var editTextUsername: EditText? = null
+    private var editTextPassword: EditText? = null
     private var login: Button? = null
     private var checkBox: CheckBox? = null
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login_activtiy)
+        setContentView(R.layout.activity_login)
 
         connectViews()
         login()
-      //  checkFields()
+    //    checkFields()
 
     }
 
     private fun connectViews() {
 
-        username = findViewById(R.id.username)
-        password = findViewById(R.id.Password)
+        editTextUsername = findViewById(R.id.etUsername)
+        editTextPassword = findViewById(R.id.etPassword)
         login = findViewById(R.id.Login)
         checkBox = findViewById(R.id.checkbox)
     }
 
     private fun login() {
         val arr: ArrayList<User> = ArrayList()
-        arr.add(User("ahmd@test.com", "333"))
-        arr.add(User("t@test.com", "12345"))
-        arr.add(User("test@test.com", "12345"))
+        arr.add(User("ahmd@test.com","333"))
+        arr.add(User("t@test.com","12345"))
+        arr.add(User("test@test.com","12345"))
         login?.setOnClickListener {
-            val username = username?.text.toString()
-            val password = password?.text.toString()
-            val user = User(username, password)   // opject
+            val username = editTextUsername?.text.toString()
+            val password = editTextPassword?.text.toString()
+            val user = User(username,password)
             for (userArray in arr) {
                 if (userArray.email == user.email
                     && userArray.password == user.password
@@ -51,7 +50,7 @@ class LoginActivtiy : AppCompatActivity() {
                     //   Toast.makeText(this, "Hi ${user.email}", Toast.LENGTH_SHORT).show()
                     finish()
                     val i = Intent(this, MainActivity::class.java)
-                    i.putExtra("username ", userArray.email)
+                    i.putExtra("email", userArray.email) // key & value
                     startActivity(i)
                     break
                 } else {
@@ -65,10 +64,10 @@ class LoginActivtiy : AppCompatActivity() {
 
     private fun checkFields() {
         login?.setOnClickListener {
-            if (username?.text?.isEmpty() == true) {
-                username?.setError("here your email")
-            } else if (password?.text?.isEmpty() == true) {
-                password?.setError("here your password")
+            if (editTextUsername?.text?.isEmpty() == true) {
+                editTextUsername?.setError("here your email")
+            } else if (editTextPassword?.text?.isEmpty() == true) {
+                editTextPassword?.setError("here your password")
 
             }
         }

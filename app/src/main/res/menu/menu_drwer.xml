@@ -13,7 +13,7 @@
     <item
         android:id="@+id/logout"
         android:icon="@drawable/ic_baseline_logout_new_24"
-        android:title="@string/logout"/>
+        android:title="@string/Logout"/>
 
 
 

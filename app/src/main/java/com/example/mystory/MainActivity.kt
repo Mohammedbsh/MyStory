@@ -9,6 +9,8 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
+import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.navigation.NavigationView
 
 class MainActivity : AppCompatActivity() {
@@ -16,7 +18,8 @@ class MainActivity : AppCompatActivity() {
     private var drawerLayout: DrawerLayout? = null
     private var toolbarView: Toolbar? = null
     private var navigationView: NavigationView? = null
-
+    private var recyclerView: RecyclerView? = null  //worpcntent
+    private var buttonAddStory:FloatingActionButton?= null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -24,31 +27,32 @@ class MainActivity : AppCompatActivity() {
         val email = intent.getStringExtra("email")
 
         connectViews()
+
         textViewEmail?.text = email
         setSupportActionBar(toolbarView)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         setupDrawer()
-        updateEmailnHeader(email!!)
+        updateEmailInHeader(email!!)
         drawerClicks()
+        openAddStoryActivity()
 
     }
 
-    private fun updateEmailnHeader(email: String) {
+    private fun updateEmailInHeader(email:String) {
         val headerView = navigationView?.getHeaderView(0)
-        textViewEmail = headerView?.findViewById<TextView>(R.id.Email)
+        val textViewEmail = headerView?.findViewById<TextView>(R.id.tvEmail)
         textViewEmail?.text = email
     }
 
     private fun setupDrawer() {
-        val toggle = ActionBarDrawerToggle(this, drawerLayout, R.string.open, R.string.close)
-
+        val toggle = ActionBarDrawerToggle(this,drawerLayout, R.string.open, R.string.close)
         drawerLayout?.addDrawerListener(toggle)
         toggle.syncState()
 
     }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+    override fun onOptionsItemSelected(item: MenuItem): Boolean { // تغيير العلامه الى خطوط
         return when (item.itemId) {
             android.R.id.home -> {
                 drawerLayout?.openDrawer(GravityCompat.START)
@@ -60,33 +64,43 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun connectViews() {
-        textViewEmail = findViewById(R.id.Email)
+        textViewEmail = findViewById(R.id.tvEmail)
         drawerLayout = findViewById(R.id.drawer)
         toolbarView = findViewById(R.id.toolbar)
         navigationView = findViewById(R.id.navView)
+        recyclerView = findViewById(R.id.storiesRecyclerView)
+        buttonAddStory = findViewById(R.id.btnAddStory)
 
     }
 
-    private fun drawerClicks() {
+    private fun drawerClicks(){
         navigationView?.setNavigationItemSelectedListener {
-            when (it.itemId) {
+            when (it.itemId){
                 R.id.home ->{
                     drawerLayout?.closeDrawer(GravityCompat.START)
-                true
+                    true
+                }
+                R.id.logout -> {
+                    finish()
+                    val i = Intent(this, LoginActivity::class.java)
+                    startActivity(i)
+
+                    true
+                }
+                else -> true
 
             }
-            R.id.layout -> {
-            finish()
-            val i = Intent(this, LoginActivtiy::class.java)
-            startActivity(i)
-
-            true
-        }
-            else -> true
-
         }
     }
-}
+    private fun openAddStoryActivity(){
+        buttonAddStory?.setOnClickListener {
+            val i = Intent(this , AddStoryActivity::class.java)
+            startActivity(i)
+        }
+    }
+
+
+
 }
 
 

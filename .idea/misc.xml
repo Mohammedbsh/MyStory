@@ -3,11 +3,15 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/HUAWEI/AndroidStudioProjects/MyStory/app/src/main/res/drawable/ic_baseline_logout_new_24.xml" value="0.1" />
+        <entry key="..\:/Users/HUAWEI/AndroidStudioProjects/MyStory/app/src/main/res/layout/activity_add_story.xml" value="0.21302083333333333" />
+        <entry key="..\:/Users/HUAWEI/AndroidStudioProjects/MyStory/app/src/main/res/layout/activity_login.xml" value="0.1" />
         <entry key="..\:/Users/HUAWEI/AndroidStudioProjects/MyStory/app/src/main/res/layout/activity_login_activtiy.xml" value="0.16203703703703703" />
-        <entry key="..\:/Users/HUAWEI/AndroidStudioProjects/MyStory/app/src/main/res/layout/activity_main.xml" value="0.1" />
-        <entry key="..\:/Users/HUAWEI/AndroidStudioProjects/MyStory/app/src/main/res/layout/activity_splash.xml" value="0.264" />
-        <entry key="..\:/Users/HUAWEI/AndroidStudioProjects/MyStory/app/src/main/res/layout/nav_header.xml" value="0.12454710144927536" />
-        <entry key="..\:/Users/HUAWEI/AndroidStudioProjects/MyStory/app/src/main/res/menu/menu_drwer.xml" value="0.21614583333333334" />
+        <entry key="..\:/Users/HUAWEI/AndroidStudioProjects/MyStory/app/src/main/res/layout/activity_main.xml" value="0.4" />
+        <entry key="..\:/Users/HUAWEI/AndroidStudioProjects/MyStory/app/src/main/res/layout/activity_splash.xml" value="0.1" />
+        <entry key="..\:/Users/HUAWEI/AndroidStudioProjects/MyStory/app/src/main/res/layout/custom.xml" value="0.2" />
+        <entry key="..\:/Users/HUAWEI/AndroidStudioProjects/MyStory/app/src/main/res/layout/nav_header.xml" value="0.1" />
+        <entry key="..\:/Users/HUAWEI/AndroidStudioProjects/MyStory/app/src/main/res/menu/menu_drwer.xml" value="0.2" />
       </map>
     </option>
   </component>

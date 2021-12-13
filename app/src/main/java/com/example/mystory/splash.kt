@@ -18,7 +18,7 @@ class splash : AppCompatActivity() {
         // this code for codes Delayed
         Handler(Looper.myLooper()!!).postDelayed({
             finish()
-            val i = Intent(this,LoginActivtiy::class.java)
+            val i = Intent(this,LoginActivity::class.java)
             startActivity(i)
         }, 3000)
 

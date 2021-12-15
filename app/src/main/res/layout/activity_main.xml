@@ -22,7 +22,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:background="#2196F3"/>
+            android:background="#4F8BBB"/>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/storiesRecyclerView"

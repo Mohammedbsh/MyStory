@@ -18,8 +18,9 @@ class MainActivity : AppCompatActivity() {
     private var drawerLayout: DrawerLayout? = null
     private var toolbarView: Toolbar? = null
     private var navigationView: NavigationView? = null
-    private var recyclerView: RecyclerView? = null  //worpcntent
+    private var recyclerView: RecyclerView? = null  //worpContent
     private var buttonAddStory:FloatingActionButton?= null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -36,6 +37,7 @@ class MainActivity : AppCompatActivity() {
         updateEmailInHeader(email!!)
         drawerClicks()
         openAddStoryActivity()
+        displayStories()
 
     }
 
@@ -99,6 +101,22 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+
+    private fun displayStories(){
+        val storiesArray = ArrayList<Story>()
+        storiesArray.add(
+            Story("This is my first Story i will show","subtitle","i am learn"))
+storiesArray.add(
+            Story("my second Story i will show","subtitle","i am learn"))
+storiesArray.add(
+            Story("This is my third Story i will show","subtitle","i am learn"))
+
+
+
+        val customAdapter = CustomAdapter(storiesArray,this)
+        recyclerView?.adapter = customAdapter
+
+    }
 
 
 }

@@ -34,7 +34,13 @@ class MainActivity : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         setupDrawer()
-        updateEmailInHeader(email!!)
+        try {
+            updateEmailInHeader(email!!)
+
+        }catch (e:NullPointerException){
+
+        }
+
         drawerClicks()
         openAddStoryActivity()
         displayStories()
@@ -77,14 +83,14 @@ class MainActivity : AppCompatActivity() {
 
     private fun drawerClicks(){
         navigationView?.setNavigationItemSelectedListener {
-            when (it.itemId){
+            when(it.itemId){
                 R.id.home ->{
                     drawerLayout?.closeDrawer(GravityCompat.START)
                     true
                 }
                 R.id.logout -> {
                     finish()
-                    val i = Intent(this, LoginActivity::class.java)
+                    val i = Intent(this,LoginActivity::class.java)
                     startActivity(i)
 
                     true
@@ -96,16 +102,16 @@ class MainActivity : AppCompatActivity() {
     }
     private fun openAddStoryActivity(){
         buttonAddStory?.setOnClickListener {
-            val i = Intent(this , AddStoryActivity::class.java)
+            val i = Intent(this,AddStoryActivity::class.java)
             startActivity(i)
         }
     }
 
 
-    private fun displayStories(){
+    private fun displayStories(){  // عرض القصص
         val storiesArray = ArrayList<Story>()
         storiesArray.add(
-            Story("This is my first Story i will show","subtitle","i am learn"))
+            Story("This is my first Story i will show","subtitle","i am learn and It is a very basic calculator where you enter numbers using the apps buttons. It performs the calculation when any of the operation keys are pressed (plus, minus, multiple and divide). It works both in landscape and in portrait view"))
 storiesArray.add(
             Story("my second Story i will show","subtitle","i am learn"))
 storiesArray.add(
